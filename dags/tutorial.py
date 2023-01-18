@@ -6,7 +6,7 @@ with DAG(
     dag_id="example_python_operator",
     schedule_interval="@daily",
     start_date=dt.datetime(2023, 1, 18),
-    email=['ben.hecht@mongodb.com'],
+    email='ben.hecht@mongodb.com',
     email_on_failure=True
 ) as dag:
         @task.virtualenv(
