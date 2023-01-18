@@ -42,3 +42,4 @@ with DAG(
                 print(Style.DIM + "Please wait...", flush=True)
                 sleep(1)
             print("Finished")
+        PythonOperator(task_id="validate_file_exists", python_callable=callable_virtualenv)
