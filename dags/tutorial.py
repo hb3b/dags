@@ -2,12 +2,17 @@ from airflow import DAG
 from airflow.decorators import task
 import datetime as dt
 
+args = {
+    'owner': 'Airflow',
+    'email': ['ben.hecht@mongodb.com'],
+    'email_on_failure' : True
+}
+
 with DAG(
     dag_id="example_python_operator",
     schedule_interval="@daily",
     start_date=dt.datetime(2023, 1, 18),
-    #email='ben.hecht@mongodb.com',
-    email_on_failure=True
+    default_args=args
 ) as dag:
         @task.virtualenv(
             task_id="virtualenv_python", requirements=["colorama==0.4.0"], system_site_packages=False
