@@ -1,17 +1,5 @@
-from __future__ import annotations
-
-import logging
-import shutil
-import sys
-import tempfile
-import time
-from pprint import pprint
-
-import pendulum
-
 from airflow import DAG
 from airflow.decorators import task
-from airflow.operators.python import ExternalPythonOperator, PythonVirtualenvOperator
 
 with DAG(
     dag_id="example_python_operator",
