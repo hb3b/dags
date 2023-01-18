@@ -5,7 +5,7 @@ import datetime as dt
 with DAG(
     dag_id="example_python_operator",
     schedule_interval="@daily",
-    start_date=dt.datetime(2022, 01, 01),
+    start_date=dt.datetime(2021, 1, 1),
 ) as dag:
         @task.virtualenv(
             task_id="virtualenv_python", requirements=["colorama==0.4.0"], system_site_packages=False
