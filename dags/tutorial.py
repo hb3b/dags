@@ -6,6 +6,7 @@ with DAG(
     dag_id="example_python_operator",
     schedule_interval="@daily",
     start_date=dt.datetime(2023, 1, 18),
+    email_on_failure=True
 ) as dag:
         @task.virtualenv(
             task_id="virtualenv_python", requirements=["colorama==0.4.0"], system_site_packages=False
@@ -22,5 +23,6 @@ with DAG(
                 print(Style.DIM + "Please wait...", flush=True)
                 sleep(1)
             print("Finished")
+            raise ValueError('File not parsed completely/correctly')
         t1 = callable_virtualenv()
         t1
