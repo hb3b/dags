@@ -1,4 +1,4 @@
-#
+# x
 # Licensed to the Apache Software Foundation (ASF) under one
 # or more contributor license agreements.  See the NOTICE file
 # distributed with this work for additional information
@@ -34,19 +34,15 @@ from airflow import DAG
 from airflow.decorators import task
 from airflow.operators.python import ExternalPythonOperator, PythonVirtualenvOperator
 
-[docs]log = logging.getLogger(__name__)
+log = logging.getLogger(__name__)
+
+PATH_TO_PYTHON_BINARY = sys.executable
+
+BASE_DIR = tempfile.gettempdir()
 
 
-[docs]PATH_TO_PYTHON_BINARY = sys.executable
-
-
-[docs]BASE_DIR = tempfile.gettempdir()
-
-
-
-[docs]def x():
+def x():
     pass
-
 
 
 with DAG(
@@ -59,12 +55,11 @@ with DAG(
 
     # [START howto_operator_python]
     @task(task_id="print_the_context")
-[docs]    def print_context(ds=None, **kwargs):
+    def print_context(ds=None, **kwargs):
         """Print the Airflow context and ds variable from the context."""
         pprint(kwargs)
         print(ds)
         return "Whatever you return gets printed in the logs"
-
 
     run_this = print_context()
     # [END howto_operator_python]
