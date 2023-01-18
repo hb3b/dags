@@ -11,14 +11,7 @@ with DAG(
             task_id="virtualenv_python", requirements=["colorama==0.4.0"], system_site_packages=False
         )
         def callable_virtualenv():
-            """
-            Example function that will be performed in a virtual environment.
-
-            Importing at the module level ensures that it will not attempt to import the
-            library before it is installed.
-            """
             from time import sleep
-
             from colorama import Back, Fore, Style
 
             print(Fore.RED + "some red text")
