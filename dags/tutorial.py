@@ -2,11 +2,7 @@ from airflow import DAG
 from airflow.decorators import task
 
 with DAG(
-    dag_id="example_python_operator",
-    schedule=None,
-    start_date=pendulum.datetime(2021, 1, 1, tz="UTC"),
-    catchup=False,
-    tags=["example"],
+    dag_id="example_python_operator"
 ) as dag:
         @task.virtualenv(
             task_id="virtualenv_python", requirements=["colorama==0.4.0"], system_site_packages=False
